@@ -6,14 +6,13 @@ import java.util.Scanner;
 
 
 public class CarDealer extends Person{
-    public static Integer DEFAULD_PARKING_SIZE = 3;
 
 
     public String carDealerName;
     public int mode;
 
-    public LinkedList parking = new LinkedList();
-    public int parkingSize;
+    public static LinkedList parking = new LinkedList();
+    public static int parkingSize;
     public static int carParkFreePlaces;
     private int[] parkingsSize = {5,4,3,1};
     private int[] startingMoney = {500000, 200000, 200000, 25000};
@@ -49,21 +48,32 @@ public class CarDealer extends Person{
 
         }
         }
-//    public void sellACar(Client newClient) {
-//        System.out.println("Który samochód chcesz sprzedać? (podaj indeks)");
-//        Scanner input3 = new Scanner((System.in));
-//        System.out.println("A więc postanowileś zostać Handlarzem,\nkrólem wciskania fuszerki, rodzina nie może być z Ciebie dumna...\nJak Ci Matka dała na imie ?");
-//        this.name = input3.nextLine();
-//
-//        if ( newClient.money < this.parking.get()) {
-//            System.out.println("Jeszcze musisz pozbierac na takie cacuszko");
-//        }else if (CarDealer.money >= newCar.value) {
-//            System.out.println("Zakup zakończył się powodzeniem :) Brum Brum");
-//            CarDealer.carParkOccupancy--;
-//            this.parking.add(newCar);
-//
-//        }
-//    }
+    public void sellACar(Client newClient) {
+        System.out.println("Na Twoim parkingu znajdują się : ");
+
+        for (int i = 0; i < CarDealer.parkingSize; i++) {
+            System.out.println("--------------------");
+            System.out.println(i + ". ");
+            System.out.println(CarDealer.parking.get(i));
+        }
+        System.out.println("Który samochód chcesz sprzedać? (podaj indeks)");
+        Scanner input3 = new Scanner((System.in));
+        int i = input3.nextInt();
+
+        System.out.println("Za ile chcesz go sprzedać?");
+        Scanner input4 = new Scanner((System.in));
+        Car j = (Car) this.parking.get(i);
+        j.price = input4.nextInt();
+
+        if (j.price > newClient.money) {
+            System.out.println("Jeszcze musisz pozbierac na takie cacuszko");
+        }else if (j.price <= newClient.money) {
+            System.out.println("Sprzedaż zakończyła się powodzeniem :) Brum Brum");
+            CarDealer.money += j.price;
+            this.parking.remove(j);
+            CarDealer.carParkFreePlaces++;
+        }
+    }
 
         @Override
         public String toString() {

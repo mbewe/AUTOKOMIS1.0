@@ -22,13 +22,11 @@ public class Main {
         owner.buyACar(car5);
         owner.buyACar(car6);
 
+        Client Oscar = new Client();
+        Oscar.money = 15;
+        owner.sellACar(Oscar);
 
-        System.out.println(owner.parkingSize);
-        for (int i = 0; i < owner.parkingSize; i++) {
-            System.out.println("--------------------");
-            System.out.println(i + ". ");
-            System.out.println(owner.parking.get(i));
 
-        }
+
     }
 }
