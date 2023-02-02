@@ -2,7 +2,7 @@ package persons;
 
 public class Person {
     public String name;
-    public int money;
+    public static int money;
 
     public String toString(){
 

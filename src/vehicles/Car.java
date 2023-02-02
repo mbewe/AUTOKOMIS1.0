@@ -39,9 +39,9 @@ public class Car {
 
 @Override
     public String toString() {
-        return "Producer: " + this.producer + "\nModel: " + this.model + "\nColor: " + this.color + "\nType of bodywork: " +
+        return "--------------------" + "\nProducer: " + this.producer + "\nModel: " + this.model + "\nColor: " + this.color + "\nType of bodywork: " +
                 this.typeOfBodywork + "\nType of fuel: " + this.typeOfFuel + "\nValue: " + this.value + "\nYear of production: " +
-                this.yearOfProduction + "\nCar mileage: " + this.carMileage + "\nPower engine: " + this.powerEngine;
+                this.yearOfProduction + "\nCar mileage: " + this.carMileage + "\nPower engine: " + this.powerEngine ;
 
 }
 }
