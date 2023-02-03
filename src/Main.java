@@ -26,6 +26,8 @@ public class Main {
         Oscar.money = 15;
         owner.sellACar(Oscar);
 
+        System.out.println(Oscar);
+
 
 
     }
